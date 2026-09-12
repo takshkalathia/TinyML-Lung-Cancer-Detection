@@ -58,6 +58,69 @@ The images were resized and normalized before being provided to the deep learnin
 
 The complete medical imaging dataset is **not included in this repository** because it is a third-party dataset. Users should obtain the dataset from its original source and follow its applicable license and terms of use.
 
+## Models and Optimization
+
+### Deep Learning Models
+
+Four deep learning models were evaluated for binary classification of **Benign** and **Malignant** lung CT images:
+
+- **MobileNet-V1**
+- **MobileNet-V2**
+- **EfficientNetB0**
+- **CNN with MobileNet-V3 Transfer Learning**
+
+These models were compared based on classification performance, including accuracy, precision, recall, ROC-AUC, confusion matrix, and model size. The objective was to identify a model that provides good classification performance while remaining suitable for resource-constrained TinyML deployment.
+
+### Optimizers
+
+Three optimizers were compared during model training:
+
+- **Adam**
+- **RMSprop**
+- **Nadam**
+
+The optimizer performance was evaluated across the different deep learning architectures. **RMSprop with MobileNet-V2** achieved the best reported performance in the study, with an accuracy of **97.78% before quantization** and **97.92% after quantization**.
+
+### Evaluation Metrics
+
+The models were evaluated using the following metrics:
+
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **Confusion Matrix**
+- **ROC Curve and AUC**
+- **Model Size**
+
+These metrics were used to evaluate both classification performance and the efficiency of the models for TinyML deployment.
+
+### Post-Training Quantization
+
+After training, the models were converted to **TensorFlow Lite (TFLite)** using **Post-Training Quantization (PTQ)** to reduce their memory footprint and improve their suitability for edge deployment.
+
+Three quantization techniques were investigated:
+
+1. **Dynamic Range Quantization**
+2. **Float16 Quantization**
+3. **INT8 Quantization**
+
+The quantized models were evaluated to determine the trade-off between model size and classification accuracy.
+
+### Best-Performing Model
+
+**MobileNet-V2 with RMSprop** achieved the best overall performance in the study.
+
+| Metric | Result |
+|---|---:|
+| Pre-quantization Accuracy | **97.78%** |
+| Post-quantization Accuracy | **97.92%** |
+| Original Model Size | **18.89 MB** |
+| Quantized Model Size | **2.39 MB** |
+| Model Size Reduction | **87.35%** |
+| ROC-AUC | **0.997** |
+
+The results demonstrate that MobileNet-V2 can provide a strong balance between classification performance and model size, making it suitable for TinyML and resource-constrained edge deployment.
+
 ## Methodology
 
 The overall workflow of the project is:
