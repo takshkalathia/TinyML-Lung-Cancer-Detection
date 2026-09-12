@@ -21,7 +21,7 @@ The proposed framework consists of four major layers:
 3. **TinyML Layer** – Model compression using post-training quantization.
 4. **Output Layer** – Lightweight inference on resource-constrained or edge devices.
 
-![Proposed Framework](results/framework.png)
+![Proposed Framework](results/Framework.png)
 
 ## Dataset
 
