@@ -25,15 +25,22 @@ The proposed framework consists of four major layers:
 
 ## Dataset
 
-The project uses the **IQ-OTH/NCCD Lung Cancer Dataset** obtained from Kaggle.
+## Dataset
 
-The dataset contains CT scan images belonging to:
+This project uses the **IQ-OTH/NCCD Lung Cancer Dataset**, obtained from Kaggle.
 
-- Benign
-- Malignant
-- Normal
+The dataset contains CT scan images categorized into three classes:
+- **Benign**
+- **Malignant**
+- **Normal**
 
-For this research, only the **Benign** and **Malignant** classes were used to perform binary classification.
+For this project, only the **Benign** and **Malignant** classes are used for binary lung cancer classification. The **Normal** class is excluded.
+
+The dataset is not included in this repository. You can access it here:
+
+**Dataset:** [IQ-OTH/NCCD - Lung Cancer Dataset](https://www.kaggle.com/datasets/adityamahimkar/iqothnccd-lung-cancer-dataset)
+
+During model training, images are resized, normalized using the MobileNetV2 preprocessing function, and training-time data augmentation is applied.
 
 The labels used in the project are:
 
